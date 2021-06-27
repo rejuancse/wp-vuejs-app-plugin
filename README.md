@@ -1,2 +1,2 @@
-# wp-vuejs-app-plugin
-WordPress VueJs app plugin
+# wp-vue-kickstart
+An WordPress plugin starter with Vue Js
