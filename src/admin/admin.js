@@ -3,10 +3,11 @@ import Vuex from 'vuex'
 import Router from 'vue-router'
 import store from '../store/index'
 import App from './App.vue'
-import Settings from './components/pages/Settings.vue'
+// import Settings from './components/pages/Settings.vue'
 import TabNavigation from './components/tabs/Navigation.vue'
 import GeneralTab from './components/tabs/GeneralTab.vue'
 import AnotherTab from './components/tabs/AnotherTab.vue'
+import Settings from './components/tabs/Settings.vue'
 import VueRouter from 'vue-router'
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -21,7 +22,7 @@ const routes = [
         path: '/another', components: { default: AnotherTab, tab: TabNavigation },
     },
     {
-        path: '/settings', components: { default: Settings },
+        path: '/settings', components: { default: Settings, tab: TabNavigation },
     },
 ]
 

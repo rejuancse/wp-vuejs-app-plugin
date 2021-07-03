@@ -1,7 +1,7 @@
 <template>
     <div id="wpvk-general-setting-tab" class="tab-container">
         <h2>Settings Form</h2>
-            AA: {{formData}}
+        {{formData}}
 
         <div class="clear"></div>
     </div>
