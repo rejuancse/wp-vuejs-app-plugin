@@ -10,11 +10,7 @@ Vue.use( Vuex )
 export default new Vuex.Store({
     state: {
         settings: {
-            general: {
-                firstname: '',
-                lastname: '',
-                email: ''
-            }
+            general: ''
         },
         loadingText: 'Save Settings'
     },

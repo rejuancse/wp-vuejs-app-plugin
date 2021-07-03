@@ -1,7 +1,28 @@
 <template>
     <div id="wpvk-general-setting-tab" class="tab-container">
-        <h2>Table</h2>
-        {{formData}}
+        
+
+        <table id="cache_data_area" class="wp-list-table widefat fixed striped">
+            <thead>
+                <tr id="challenceContent">
+                    <th v-for="(value, index) in formData.table.data.headers" :key="index">{{ value }}</th>
+                </tr>
+            </thead>
+
+            <tbody id="rowsid">
+                
+                    <tr v-for="(value, index) in formData.table.data.rows" :key="index">
+                        <td>{{ value.id }}</td>
+                        <td>{{ value.url }}</td>
+                        <td>{{ value.title }}</td>
+                        <td>{{ value.pageviews }}</td>
+                        <td>
+                            {{ new Date(value.date * 1000).toString().split(" ").slice(1, 4).join(" ") }}
+                        </td>
+                    </tr>
+                
+            </tbody>
+        </table>
 
         <div class="clear"></div>
     </div>
@@ -9,12 +30,15 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import moment from 'moment'
 
 export default {
     name: 'AnotherTab',
 
     data() {
-        return {}
+        return {
+            title: ''
+        }
     },
 
     mounted() {
@@ -38,6 +62,8 @@ export default {
     },
 
     methods: {
+        moment,
+
         ...mapActions([ 'FETCH_SETTINGS', 'SAVE_SETTINGS'  ]),
 
         saveSettings(e) {
