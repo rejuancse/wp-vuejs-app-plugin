@@ -3,7 +3,7 @@
         <h1>WP VueJS App</h1>
         <router-view name="tab"></router-view>
         <router-view></router-view>
-    </div>
+    </div> 
 </template>
 
 <script>
