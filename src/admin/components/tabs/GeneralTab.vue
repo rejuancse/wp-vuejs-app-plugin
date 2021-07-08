@@ -3,6 +3,8 @@
         <h2>Settings Form</h2>
         {{formData}}
 
+        <line-chart :data="chartData"></line-chart>
+
         <div class="clear"></div>
     </div>
 </template>
@@ -14,7 +16,13 @@ export default {
     name: 'GeneralTab',
 
     data() {
-        return {}
+        return {
+            chartData: {
+                '2021-05-13': 3,
+                '2021-05-16': 5,
+                '2021-05-19': 9,
+            }
+        }
     },
 
     mounted() {
@@ -51,7 +59,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
