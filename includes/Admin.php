@@ -23,17 +23,17 @@ class Admin {
      */
     public function load_scripts() {
         wp_register_script( 'wpvk-manifest', WPVK_PLUGIN_URL . 'assets/js/manifest.js', [], rand(), true );
-        wp_register_script( 'wpvk-manifestt', 'https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js', [], rand(), true );
+        // wp_register_script( 'wpvk-manifestt', 'https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js', [], rand(), true );
         wp_register_script( 'wpvk-vendor', WPVK_PLUGIN_URL . 'assets/js/vendor.js', [ 'wpvk-manifest' ], rand(), true );
         wp_register_script( 'wpvk-admin', WPVK_PLUGIN_URL . 'assets/js/admin.js', [ 'wpvk-vendor' ], rand(), true );
-        wp_register_script( 'chartjs', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js', [ 'wpvk-chart' ], rand(), true );
+        // wp_register_script( 'chartjs', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js', [ 'wpvk-chart' ], rand(), true );
 
 
         wp_enqueue_script( 'wpvk-manifest' );
-        wp_enqueue_script( 'wpvk-manifestt' );
+        // wp_enqueue_script( 'wpvk-manifestt' );
         wp_enqueue_script( 'wpvk-vendor' );
         wp_enqueue_script( 'wpvk-admin' );
-        wp_enqueue_script( 'chartjs' );
+        // wp_enqueue_script( 'chartjs' );
 
         wp_localize_script( 'wpvk-admin', 'wpvkAdminLocalizer', [
             'adminUrl'  => admin_url( '/' ),

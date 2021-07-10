@@ -1,9 +1,11 @@
 <template>
     <div id="wpvk-general-setting-tab" class="tab-container">
         <h2>Settings Form</h2>
-        {{formData}}
-
-        <line-chart :data="chartData"></line-chart>
+        <!-- {{formData}} -->
+AA: {{chartData}}
+        <div id="app">
+            <PlanetChart :data="chartData" />
+        </div>
 
         <div class="clear"></div>
     </div>
@@ -12,17 +14,19 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
+import PlanetChart from '../PlanetChart.vue'
+
 export default {
     name: 'GeneralTab',
 
     data() {
         return {
-            chartData: {
-                '2021-05-13': 3,
-                '2021-05-16': 5,
-                '2021-05-19': 9,
-            }
+            chartData: formData
         }
+    },
+
+    components: {
+        PlanetChart
     },
 
     mounted() {

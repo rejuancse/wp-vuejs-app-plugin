@@ -1,23 +1,15 @@
 import Vue from 'vue'
-import Chartkick from 'vue-chartkick'
-import Chart from 'chart.js'
-
-
-
-
 import Vuex from 'vuex'
 import Router from 'vue-router'
 import store from '../store/index'
 import App from './App.vue'
-// import Settings from './components/pages/Settings.vue'
+
 import TabNavigation from './components/tabs/Navigation.vue'
 import GeneralTab from './components/tabs/GeneralTab.vue'
 import AnotherTab from './components/tabs/AnotherTab.vue'
 import Settings from './components/tabs/Settings.vue'
 import VueRouter from 'vue-router'
-// import 'bootstrap/dist/css/bootstrap.css'
 
-Vue.use(Chartkick.use(Chart))
 Vue.use( Vuex )
 Vue.use( Router )
 
