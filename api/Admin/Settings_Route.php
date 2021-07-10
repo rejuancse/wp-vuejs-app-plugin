@@ -1,5 +1,5 @@
 <?php
-namespace WPVK\Api\Admin;
+namespace WPVAPP\Api\Admin;
 
 use WP_REST_Controller;
 
@@ -9,7 +9,7 @@ class Settings_Route extends WP_REST_Controller  {
     protected $rest_base;
 
     public function __construct() {
-        $this->namespace = 'wpvk/v1';
+        $this->namespace = 'wpvapp/v1';
         $this->rest_base = 'settings';
     }
 
@@ -42,9 +42,9 @@ class Settings_Route extends WP_REST_Controller  {
      */
     // public function get_items( $request ) {
     //     $response = [
-    //         'firstname' => get_option( 'wpvk_settings_firstname', true ),
-    //         'lastname'  => get_option( 'wpvk_settings_lastname', true ),
-    //         'email'     => get_option( 'wpvk_settings_email', true ),
+    //         'firstname' => get_option( 'wpvapp_settings_firstname', true ),
+    //         'lastname'  => get_option( 'wpvapp_settings_lastname', true ),
+    //         'email'     => get_option( 'wpvapp_settings_email', true ),
     //     ];
 
     //     return rest_ensure_response( $response );
@@ -72,9 +72,9 @@ class Settings_Route extends WP_REST_Controller  {
     //     $email     = isset( $request['email'] ) && is_email( $request['email'] ) ? sanitize_email( $request['email'] ) : '';
 
     //     // Save option data into WordPress
-    //     update_option( 'wpvk_settings_firstname', $firstname );
-    //     update_option( 'wpvk_settings_lastname', $lastname );
-    //     update_option( 'wpvk_settings_email', $email );
+    //     update_option( 'wpvapp_settings_firstname', $firstname );
+    //     update_option( 'wpvapp_settings_lastname', $lastname );
+    //     update_option( 'wpvapp_settings_email', $email );
 
     //     $response = [
     //         'firstname' => $firstname,

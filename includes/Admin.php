@@ -1,5 +1,5 @@
 <?php
-namespace WPVK\Includes;
+namespace WPVAPP\Includes;
 
 class Admin {
 
@@ -22,20 +22,15 @@ class Admin {
      * @return void
      */
     public function load_scripts() {
-        wp_register_script( 'wpvk-manifest', WPVK_PLUGIN_URL . 'assets/js/manifest.js', [], rand(), true );
-        // wp_register_script( 'wpvk-manifestt', 'https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js', [], rand(), true );
-        wp_register_script( 'wpvk-vendor', WPVK_PLUGIN_URL . 'assets/js/vendor.js', [ 'wpvk-manifest' ], rand(), true );
-        wp_register_script( 'wpvk-admin', WPVK_PLUGIN_URL . 'assets/js/admin.js', [ 'wpvk-vendor' ], rand(), true );
-        // wp_register_script( 'chartjs', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js', [ 'wpvk-chart' ], rand(), true );
+        wp_register_script( 'wpvapp-manifest', WPVAPP_PLUGIN_URL . 'assets/js/manifest.js', [], rand(), true );
+        wp_register_script( 'wpvapp-vendor', WPVAPP_PLUGIN_URL . 'assets/js/vendor.js', [ 'wpvapp-manifest' ], rand(), true );
+        wp_register_script( 'wpvapp-admin', WPVAPP_PLUGIN_URL . 'assets/js/admin.js', [ 'wpvapp-vendor' ], rand(), true );
 
+        wp_enqueue_script( 'wpvapp-manifest' );
+        wp_enqueue_script( 'wpvapp-vendor' );
+        wp_enqueue_script( 'wpvapp-admin' );
 
-        wp_enqueue_script( 'wpvk-manifest' );
-        // wp_enqueue_script( 'wpvk-manifestt' );
-        wp_enqueue_script( 'wpvk-vendor' );
-        wp_enqueue_script( 'wpvk-admin' );
-        // wp_enqueue_script( 'chartjs' );
-
-        wp_localize_script( 'wpvk-admin', 'wpvkAdminLocalizer', [
+        wp_localize_script( 'wpvapp-admin', 'wpvappAdminLocalizer', [
             'adminUrl'  => admin_url( '/' ),
             'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
             'apiUrl'    => home_url( '/wp-json' ),
@@ -43,9 +38,9 @@ class Admin {
     }
 
     public function load_styles() {
-        wp_register_style( 'wpvk-admin', WPVK_PLUGIN_URL . 'assets/css/admin.css' );
+        wp_register_style( 'wpvapp-admin', WPVAPP_PLUGIN_URL . 'assets/css/admin.css' );
 
-        wp_enqueue_style( 'wpvk-admin' );
+        wp_enqueue_style( 'wpvapp-admin' );
     }
 
     /**
@@ -56,11 +51,11 @@ class Admin {
         global $submenu;
 
         $capability = 'manage_options';
-        $slug       = 'wp-vue-kickstart';
+        $slug       = 'wp-vue-app';
 
         $hook = add_menu_page(
-            __( 'WP Vue Kickstart', 'textdomain' ),
-            __( 'WP Vue Kickstart', 'textdomain' ),
+            __( 'WP Vue App', 'vue-app' ),
+            __( 'WP Vue App', 'vue-app' ),
             $capability,
             $slug,
             [ $this, 'menu_page_template' ],
@@ -68,8 +63,8 @@ class Admin {
         );
 
         if( current_user_can( $capability )  ) {
-            $submenu[ $slug ][] = [ __( 'Kickstart', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/' ];
-            $submenu[ $slug ][] = [ __( 'Settings', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/settings' ];
+            $submenu[ $slug ][] = [ __( 'App', 'vue-app' ), $capability, 'admin.php?page=' . $slug . '#/' ];
+            $submenu[ $slug ][] = [ __( 'Settings', 'vue-app' ), $capability, 'admin.php?page=' . $slug . '#/settings' ];
         }
 
         // add_action( 'load-' . $hook, [ $this, 'init_hooks' ] );
@@ -88,8 +83,8 @@ class Admin {
      * @since 1.0.0
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'wpvk-admin' );
-        wp_enqueue_script( 'wpvk-admin' );
+        wp_enqueue_style( 'wpvapp-admin' );
+        wp_enqueue_script( 'wpvapp-admin' );
     }
 
     /**
@@ -97,7 +92,7 @@ class Admin {
      * @since 1.0.0
      */
     public function menu_page_template() {
-        echo '<div class="wrap"><div id="wpvk-admin-app"></div></div>';
+        echo '<div class="wrap"><div id="wpvapp-admin-app"></div></div>';
     }
 
 }

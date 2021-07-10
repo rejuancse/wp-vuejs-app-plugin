@@ -1,10 +1,10 @@
 <?php
-namespace WPVK\Includes;
+namespace WPVAPP\Includes;
 
 class Frontend {
 
     public function __construct() {
-        add_shortcode( 'wpvk-app', [ $this, 'render_frontend' ] );
+        add_shortcode( 'wpvapp-app', [ $this, 'render_frontend' ] );
     }
 
     /**
@@ -12,10 +12,10 @@ class Frontend {
      * @since 1.0.0
      */
     public function render_frontend( $atts, $content = '' ) {
-        wp_enqueue_style( 'wpvk-frontend' );
-        wp_enqueue_script( 'wpvk-frontend' );
+        wp_enqueue_style( 'wpvapp-frontend' );
+        wp_enqueue_script( 'wpvapp-frontend' );
 
-        $content .= '<div id="wpvk-frontend-app"></div>';
+        $content .= '<div id="wpvapp-frontend-app"></div>';
 
         return $content;
     }

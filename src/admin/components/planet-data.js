@@ -1,3 +1,4 @@
+import { mapActions, mapGetters } from 'vuex'
 
 export const planetChartData = {
     type: 'bar',
@@ -31,7 +32,7 @@ export const planetChartData = {
                 beginAtZero: true
             }
         }
-    }
+    },
 };
   
 export default planetChartData;

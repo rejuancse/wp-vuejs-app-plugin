@@ -1,28 +1,17 @@
 <template>
-    <div id="wpvapp-general-setting-tab" class="tab-container">
-
-        <div id="app">
-            <PlanetChart />
-        </div>
-
-        <div class="clear"></div>
+    <div>
+        {{formData}}
     </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-import PlanetChart from '../PlanetChart.vue'
-
 export default {
-    name: 'GeneralTab',
-
-    components: {
-        PlanetChart
-    },
+    name: 'ChartValue',
 
     mounted() {
-        this.fetchSettings()
+        this.fetchSettings();
     },
 
     computed: {

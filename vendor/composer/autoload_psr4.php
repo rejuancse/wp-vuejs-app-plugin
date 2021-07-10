@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'WPVK\\Includes\\' => array($baseDir . '/includes'),
-    'WPVK\\Frontend\\' => array($baseDir . '/frontend'),
-    'WPVK\\Api\\' => array($baseDir . '/api'),
-    'WPVK\\Admin\\' => array($baseDir . '/admin'),
+    'WPVAPP\\Includes\\' => array($baseDir . '/includes'),
+    'WPVAPP\\Frontend\\' => array($baseDir . '/frontend'),
+    'WPVAPP\\Api\\' => array($baseDir . '/api'),
+    'WPVAPP\\Admin\\' => array($baseDir . '/admin'),
 );

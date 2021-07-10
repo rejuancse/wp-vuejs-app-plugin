@@ -1,5 +1,5 @@
 <template>
-    <div id="wpvk-general-setting-tab" class="tab-container" v-if="formData.table">
+    <div id="wpvapp-general-setting-tab" class="tab-container" v-if="formData.table">
         <h2>{{ formData.table.title }}</h2>
         <table id="cache_data_area" class="wp-list-table widefat fixed striped">
             <thead>

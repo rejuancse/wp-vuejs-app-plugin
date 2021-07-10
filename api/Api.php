@@ -1,8 +1,8 @@
 <?php
-namespace WPVK\Api;
+namespace WPVAPP\Api;
 
 use WP_REST_Controller;
-use WPVK\Api\Admin\Settings_Route;
+use WPVAPP\Api\Admin\Settings_Route;
 
 /**
  * Rest API Handler

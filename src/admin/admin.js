@@ -30,7 +30,7 @@ const router = new VueRouter({
 })
 
 new Vue({
-    el: '#wpvk-admin-app',
+    el: '#wpvapp-admin-app',
     store,
     router,
     render: h => h( App )

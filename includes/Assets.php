@@ -1,5 +1,5 @@
 <?php
-namespace WPVK\Includes;
+namespace WPVAPP\Includes;
 
 class Assets {
 
@@ -28,7 +28,7 @@ class Assets {
         foreach( $scripts as $handle => $script ) {
             $deps      = isset( $script[ 'deps' ] ) ? $script[ 'deps' ] : false;
             $in_footer = isset( $script[ 'in_footer' ] ) ? $script[ 'in_footer' ] : false;
-            $version   = isset( $script[ 'version' ] ) ? $script[ 'version' ] : WPVK_VERSION;
+            $version   = isset( $script[ 'version' ] ) ? $script[ 'version' ] : WPVAPP_VERSION;
 
             wp_register_script( $handle, $script[ 'src' ], $deps, $version, $in_footer );
         }
@@ -42,7 +42,7 @@ class Assets {
         foreach( $styles as $handle => $style ) {
             $deps = isset( $style[ 'deps' ] ) ? $style[ 'deps' ] : false;
 
-            wp_register_style( $handle, $style[ 'src' ], $deps, WPVK_VERSION );
+            wp_register_style( $handle, $style[ 'src' ], $deps, WPVAPP_VERSION );
         }
     }
 
@@ -54,28 +54,28 @@ class Assets {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
-            'wpvk-manifest' => [
-                'src'       => WPVK_PLUGIN_URL . '/assets/js/manifest.js',
+            'wpvapp-manifest' => [
+                'src'       => WPVAPP_PLUGIN_URL . '/assets/js/manifest.js',
                 'deps'      => [],
-                'version'   => \filemtime( WPVK_PLUGIN_PATH . '/assets/js/manifest.js' ),
+                'version'   => \filemtime( WPVAPP_PLUGIN_PATH . '/assets/js/manifest.js' ),
                 'in_footer' => true
             ],
-            'wpvk-vendor' => [
-                'src'       => WPVK_PLUGIN_URL . '/assets/js/vendor.js',
-                'deps'      => [ 'wpvk-manifest' ],
-                'version'   => \filemtime( WPVK_PLUGIN_PATH . '/assets/js/vendor.js' ),
+            'wpvapp-vendor' => [
+                'src'       => WPVAPP_PLUGIN_URL . '/assets/js/vendor.js',
+                'deps'      => [ 'wpvapp-manifest' ],
+                'version'   => \filemtime( WPVAPP_PLUGIN_PATH . '/assets/js/vendor.js' ),
                 'in_footer' => true
             ],
-            'wpvk-admin' => [
-                'src'       => WPVK_PLUGIN_URL . '/assets/js/admin.js',
-                'deps'      => [ 'wpvk-vender' ],
-                'version'   => \filemtime( WPVK_PLUGIN_PATH . '/assets/js/admin.js' ),
+            'wpvapp-admin' => [
+                'src'       => WPVAPP_PLUGIN_URL . '/assets/js/admin.js',
+                'deps'      => [ 'wpvapp-vender' ],
+                'version'   => \filemtime( WPVAPP_PLUGIN_PATH . '/assets/js/admin.js' ),
                 'in_footer' => true
             ],
-            'wpvk-frontend' => [
-                'src'       => WPVK_PLUGIN_URL . '/assets/js/frontend.js',
-                'deps'      => [ 'jquery', 'wpvk-vender' ],
-                'version'   => \filemtime( WPVK_PLUGIN_PATH . '/assets/js/frontend.js' ),
+            'wpvapp-frontend' => [
+                'src'       => WPVAPP_PLUGIN_URL . '/assets/js/frontend.js',
+                'deps'      => [ 'jquery', 'wpvapp-vender' ],
+                'version'   => \filemtime( WPVAPP_PLUGIN_PATH . '/assets/js/frontend.js' ),
                 'in_footer' => true
             ],
         ];
@@ -89,14 +89,14 @@ class Assets {
      */
     public function get_styles() {
         $styles = [
-            'wpvk-style' => [
-                'src' => WPVK_PLUGIN_URL . '/assets/css/style.css'
+            'wpvapp-style' => [
+                'src' => WPVAPP_PLUGIN_URL . '/assets/css/style.css'
             ],
-            'wpvk-admin' => [
-                'src' => WPVK_PLUGIN_URL . '/assets/css/admin.css'
+            'wpvapp-admin' => [
+                'src' => WPVAPP_PLUGIN_URL . '/assets/css/admin.css'
             ],
-            'wpvk-frontend' => [
-                'src' => WPVK_PLUGIN_URL . '/assets/css/frontend.css'
+            'wpvapp-frontend' => [
+                'src' => WPVAPP_PLUGIN_URL . '/assets/css/frontend.css'
             ],
         ];
 

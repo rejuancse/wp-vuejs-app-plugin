@@ -1,12 +1,11 @@
 <?php
 /**
  * Plugin Name: WP Vue App
- * Description: A wp vue starter for plugin development.
+ * Description: WP vue app starter for plugin development.
  * Version: 1.0.0
  * Author: Rejuan Ahamed
- * Author URI: https://robizstory.me
  * License: GPL v3
- * Text-Domain: textdomain
+ * Text-Domain: vue-app
  */
 
 if( ! defined( 'ABSPATH' ) ) exit(); // No direct access allowed
@@ -16,11 +15,11 @@ if( ! defined( 'ABSPATH' ) ) exit(); // No direct access allowed
  */
 require_once 'vendor/autoload.php';
 
-use WPVK\Api\Api;
-use WPVK\Includes\Admin;
-use WPVK\Includes\Frontend;
+use WPVAPP\Api\Api;
+use WPVAPP\Includes\Admin;
+use WPVAPP\Includes\Frontend;
 
-final class WP_Vue_Kickstart {
+final class WP_Vue_App {
 
     /**
      * Define Plugin Version
@@ -42,10 +41,10 @@ final class WP_Vue_Kickstart {
      * @since 1.0.0
      */
     public function plugin_constants() {
-        define( 'WPVK_VERSION', self::VERSION );
-        define( 'WPVK_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-        define( 'WPVK_PLUGIN_URL', trailingslashit( plugins_url( '', __FILE__ ) ) );
-        define( 'WPVK_NONCE', 'b?le*;K7.T2jk_*(+3&[G[xAc8O~Fv)2T/Zk9N:GKBkn$piN0.N%N~X91VbCn@.4' );
+        define( 'WPVAPP_VERSION', self::VERSION );
+        define( 'WPVAPP_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'WPVAPP_PLUGIN_URL', trailingslashit( plugins_url( '', __FILE__ ) ) );
+        define( 'WPVAPP_NONCE', 'b?le*;K7.T2jk_*(+3&[G[xAc8O~Fv)2T/Zk9N:GKBkn$piN0.N%N~X91VbCn@.4' );
     }
 
     /**
@@ -67,13 +66,13 @@ final class WP_Vue_Kickstart {
      * @since 1.0.0
      */
     public function activate() {
-        $is_installed = get_option( 'wpvk_is_installed' );
+        $is_installed = get_option( 'wpvapp_is_installed' );
 
         if( ! $is_installed ) {
-            update_option( 'wpvk_is_installed', time() );
+            update_option( 'wpvapp_is_installed', time() );
         }
 
-        update_option( 'wpvk_is_installed', WPVK_VERSION );
+        update_option( 'wpvapp_is_installed', WPVAPP_VERSION );
     }
 
     /**
@@ -101,9 +100,9 @@ final class WP_Vue_Kickstart {
  * Initialize Main Plugin
  * @since 1.0.0
  */
-function wp_vue_kickstart() {
-    return WP_Vue_Kickstart::init();
+function wp_vue_app() {
+    return WP_Vue_App::init();
 }
 
 // Run the Plugin
-wp_vue_kickstart();
+wp_vue_app();

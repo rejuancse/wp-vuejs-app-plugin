@@ -1,6 +1,6 @@
 
 {
-    "name": "rabiul/wp-vue-kickstart",
+    "name": "rabiul/wp-vue-app",
     "description": "An WordPress plugin starter with Vue Js.",
     "authors": [
         {
@@ -11,10 +11,10 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "WPVK\\Admin\\": "admin/",
-            "WPVK\\Frontend\\": "frontend/",
-            "WPVK\\Includes\\": "includes/",
-            "WPVK\\Api\\": "api/"
+            "WPVAPP\\Admin\\": "admin/",
+            "WPVAPP\\Frontend\\": "frontend/",
+            "WPVAPP\\Includes\\": "includes/",
+            "WPVAPP\\Api\\": "api/"
         }
     },
     "require-dev": {
