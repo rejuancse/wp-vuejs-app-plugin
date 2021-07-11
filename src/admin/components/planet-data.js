@@ -1,9 +1,9 @@
 import { mapActions, mapGetters } from 'vuex'
 
-export const planetChartData = {
+export default {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Black'],
+        labels: ['2021-07-02', '2021-07-05', '2021-07-06', '2021-07-07', '2021-07-08', '2021-07-09', '2021-07-10'],
         datasets: [{
             label: '# of Votes',
             data: [21853, 2248, 26174, 21800, 29412, 24088, 1641],
@@ -34,5 +34,3 @@ export const planetChartData = {
         }
     },
 };
-  
-export default planetChartData;
