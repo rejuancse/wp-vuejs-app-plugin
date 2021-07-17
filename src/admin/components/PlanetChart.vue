@@ -22,22 +22,25 @@ export default {
         axios.get('https://miusage.com/v1/challenge/2/static/')
             .then(response => {
 
+                window.localStorage.setItem('graphValue', response.data.graph);
+
+                console.log('Graph Value: ', response.data.graph);
+
+                if (localStorage.response) {
+                    info = localStorage.response;
+                }
+
                 var hours = 10; // Reset when storage is more than 24hours
                 var now = new Date().getTime();
                 var setupTime = localStorage.getItem('setupTime');
 
-                console.log('Rose', now);
 
                 if (setupTime == null) {
                     localStorage.setItem('setupTime', now)
-
-                    console.log('rr');
-
                 } else {
                     if(now.setupTime > hours) {
                         localStorage.clear()
                         localStorage.setItem('setupTime', now);
-                        console.log('Clean');
                     }
                 }
 
@@ -108,5 +111,11 @@ export default {
             .finally(() => this.loading = false)
 
     },
+
+    watch: {
+        info(newName) {
+            localStorage.info = newName;
+        }
+    }
 }
 </script>

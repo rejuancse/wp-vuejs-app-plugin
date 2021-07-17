@@ -5,8 +5,8 @@ import store from '../store/index'
 import App from './App.vue'
 
 import TabNavigation from './components/tabs/Navigation.vue'
-import GeneralTab from './components/tabs/GeneralTab.vue'
-import AnotherTab from './components/tabs/AnotherTab.vue'
+import GraphTab from './components/tabs/GraphTab.vue'
+import TableTab from './components/tabs/TableTab.vue'
 import Settings from './components/tabs/Settings.vue'
 import VueRouter from 'vue-router'
 
@@ -15,10 +15,10 @@ Vue.use( Router )
 
 const routes = [
     {
-        path: '/', components: { default: GeneralTab, tab: TabNavigation },
+        path: '/', components: { default: GraphTab, tab: TabNavigation },
     },
     {
-        path: '/another', components: { default: AnotherTab, tab: TabNavigation },
+        path: '/table', components: { default: TableTab, tab: TabNavigation },
     },
     {
         path: '/settings', components: { default: Settings, tab: TabNavigation },

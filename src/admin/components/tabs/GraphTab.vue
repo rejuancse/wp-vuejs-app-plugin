@@ -15,7 +15,7 @@ import { mapActions, mapGetters } from 'vuex'
 import PlanetChart from '../PlanetChart.vue'
 
 export default {
-    name: 'GeneralTab',
+    name: 'GraphTab',
 
     components: {
         PlanetChart

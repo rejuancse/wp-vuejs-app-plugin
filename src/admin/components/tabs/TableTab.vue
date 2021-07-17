@@ -29,7 +29,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-    name: 'AnotherTab',
+    name: 'TableTab',
 
     data() {
         return {
@@ -71,7 +71,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
