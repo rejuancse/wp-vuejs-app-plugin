@@ -1,11 +1,11 @@
 
 {
-    "name": "rabiul/wp-vue-app",
+    "name": "rejuan/wp-vue-app",
     "description": "An WordPress plugin starter with Vue Js.",
     "authors": [
         {
-            "name": "MD. Rabiul Islam Robi",
-            "email": "robizmailbox@gmail.com"
+            "name": "Rejuan Ahamed",
+            "email": "rejuan.17bd@gmail.com"
         }
     ],
     "require": {},

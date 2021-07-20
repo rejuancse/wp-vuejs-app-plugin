@@ -19,5 +19,4 @@ class Frontend {
 
         return $content;
     }
-
 }

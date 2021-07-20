@@ -1,6 +1,5 @@
 <template>
     <div id="wpvapp-general-setting-tab" class="tab-container">
-
         <div id="app">
             <PlanetChart />
         </div>

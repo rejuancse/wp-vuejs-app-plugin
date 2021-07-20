@@ -21,29 +21,6 @@ export default {
 
         axios.get('https://miusage.com/v1/challenge/2/static/')
             .then(response => {
-
-                window.localStorage.setItem('graphValue', response.data.graph);
-
-                console.log('Graph Value: ', response.data.graph);
-
-                if (localStorage.response) {
-                    info = localStorage.response;
-                }
-
-                var hours = 10; // Reset when storage is more than 24hours
-                var now = new Date().getTime();
-                var setupTime = localStorage.getItem('setupTime');
-
-
-                if (setupTime == null) {
-                    localStorage.setItem('setupTime', now)
-                } else {
-                    if(now.setupTime > hours) {
-                        localStorage.clear()
-                        localStorage.setItem('setupTime', now);
-                    }
-                }
-
                 var date0 = response.data.graph[0].date
                 var date1 = response.data.graph[1].date
                 var date2 = response.data.graph[2].date
@@ -91,8 +68,7 @@ export default {
                                 'rgba(153, 102, 255, 1)',
                                 'rgba(255, 159, 64, 1)'
                             ],
-                             borderWidth: 1
-                           
+                            borderWidth: 1
                         }]
                     },
                     options: {
@@ -105,11 +81,9 @@ export default {
                 });
             })
             .catch(error => {
-                console.log(error)
                 this.errored = true
             })
             .finally(() => this.loading = false)
-
     },
 
     watch: {
