@@ -11,7 +11,7 @@ export default {
 
     data() {
         return {
-            message: 'This is settings tab'
+            message: 'This is settings tabs'
         }    
     }
 }

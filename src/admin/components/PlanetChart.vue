@@ -17,41 +17,41 @@ export default {
     },
 
     mounted() {
-        const ctx = document.getElementById('planet-chart');
+        let ctx = document.getElementById('planet-chart');
+
+        let users_data = JSON.parse(localStorage.getItem('ctx'));
 
         axios.get('https://miusage.com/v1/challenge/2/static/')
             .then(response => {
-                var date0 = response.data.graph[0].date
-                var date1 = response.data.graph[1].date
-                var date2 = response.data.graph[2].date
-                var date3 = response.data.graph[3].date
-                var date4 = response.data.graph[4].date
-                var date5 = response.data.graph[5].date
-                var date8 = response.data.graph[8].date
 
-                var value0 = response.data.graph[0].value
-                var value1 = response.data.graph[1].value
-                var value2 = response.data.graph[2].value
-                var value3 = response.data.graph[3].value
-                var value4 = response.data.graph[4].value
-                var value5 = response.data.graph[5].value
-                var value8 = response.data.graph[8].value
+                // store to local
+                localStorage.setItem('users_data', JSON.stringify( response.data.graph ));
 
-                var date_value1 = new Date(date0 * 1000).toString().split(" ").slice(1, 4).join(" ");
-                var date_value2 = new Date(date1 * 1000).toString().split(" ").slice(1, 4).join(" ");
-                var date_value3 = new Date(date2 * 1000).toString().split(" ").slice(1, 4).join(" ");
-                var date_value4 = new Date(date3 * 1000).toString().split(" ").slice(1, 4).join(" ");
-                var date_value5 = new Date(date4 * 1000).toString().split(" ").slice(1, 4).join(" ");
-                var date_value6 = new Date(date5 * 1000).toString().split(" ").slice(1, 4).join(" ");
-                var date_value7 = new Date(date8 * 1000).toString().split(" ").slice(1, 4).join(" ");
+                let array_date = [];
+                let array_value = [];
+
+                for (let index = 0; index <= 8; index++) {
+
+                    if( index === 6 || index === 7 ) {
+                        continue;
+                    }
+
+                    let date = users_data[index].date;
+                    let value = users_data[index].value;
+
+                    let date_value = new Date(date * 1000).toString().split(" ").slice(1, 4).join(" ");
+
+                    array_date.push(date_value);
+                    array_value.push(value);
+                }
 
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: [date_value1, date_value2, date_value3, date_value4, date_value5, date_value6, date_value7],
+                        labels: array_date,
                         datasets: [{
                             label: '# Data Value',
-                            data: [value0, value1, value2, value3, value4, value5, value8],
+                            data: array_value,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
