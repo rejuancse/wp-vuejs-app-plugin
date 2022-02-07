@@ -62,7 +62,7 @@ export default {
 
         saveSettings(e) {
             e.preventDefault();
-            this.SAVE_SETTINGS( this.formData ) 
+            this.SAVE_SETTINGS( this.formData )
         },
 
         fetchSettings() {

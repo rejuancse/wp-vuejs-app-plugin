@@ -1,7 +1,12 @@
 <template>
     <div class="tab-container">
-        <h2>Settings</h2>
+        <div class="wrap">
+        <h1 class="wp-heading-inline">Forced Cache Clear</h1>
         <p>{{ message }}</p>
+
+        <button type="submit" class="page-title-action">Force Cache Clear</button>
+
+        </div>
     </div>
 </template>
 
@@ -11,7 +16,7 @@ export default {
 
     data() {
         return {
-            message: 'This is settings tabs'
+            message: 'Data cache in one hour, delete your Graph and table cache'
         }    
     }
 }
